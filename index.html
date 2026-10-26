@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* Layout: deck corto (portada + slides + discovery) a pantalla completa con snap vertical; sistema visual Solu. Look único y deliberado, no cambia con el tema del visor. Guion del presentador en panel inferior (tecla G). */
+/* Layout: deck corto (portada + slides + discovery) a pantalla completa con snap vertical; sistema visual Solu. Look único y deliberado, no cambia con el tema del visor. */
 :root{
   --ink:#0C151E; --navy2:#14212D; --navy-line:#2A3D50; --on-navy:#CAD7E5; --paper:#FFFFFF; --soft:#F4F6F8;
   --purple:#5B46F9; --cyan:#00DCDA; --teal:#0E9B9A; --yellow:#FFCF58; --red:#C2362F; --ok:#0A9E7A;
@@ -620,21 +620,13 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
 .anim .slide.in .rv{animation:up .6s var(--ease) forwards;animation-delay:calc(var(--d,0) * 70ms)}
 @keyframes up{to{opacity:1;transform:none}}
 
-/* navegación y guion */
+/* navegación */
 #bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--grad);z-index:60;transition:width .25s}
 #counter{position:fixed;bottom:calc(max(18px,.92rem) + env(safe-area-inset-bottom,0px));right:calc(max(22px,1.1rem) + env(safe-area-inset-right,0px));z-index:61;font-size:.8rem;font-weight:700;color:#fff;background:rgba(12,21,30,.72);backdrop-filter:blur(6px);padding:.4rem .8rem;border-radius:50px;border:1px solid #1a2a3a;font-variant-numeric:tabular-nums}
-#notesBtn{position:fixed;bottom:calc(max(18px,.92rem) + env(safe-area-inset-bottom,0px));left:calc(max(22px,1.1rem) + env(safe-area-inset-left,0px));z-index:61;font-family:var(--font);font-size:.8rem;font-weight:700;color:#fff;background:rgba(12,21,30,.72);backdrop-filter:blur(6px);padding:.4rem .9rem;border-radius:50px;border:1px solid #1a2a3a;cursor:pointer}
-#notesBtn[aria-pressed="true"]{background:var(--purple);border-color:var(--purple)}
 .nav-arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:60;width:2.4rem;height:2.4rem;min-width:40px;min-height:40px;border-radius:50%;background:rgba(12,21,30,.55);backdrop-filter:blur(6px);border:1px solid #1a2a3a;color:#fff;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;font-family:var(--font)}
 .nav-arrow:hover{background:var(--purple)}
 :focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
 #prev{left:calc(max(14px,.7rem) + env(safe-area-inset-left,0px))}#next{right:calc(max(14px,.7rem) + env(safe-area-inset-right,0px))}
-.notes{display:none}
-#panel{position:fixed;left:0;right:0;bottom:0;z-index:59;max-height:42vh;overflow-y:auto;background:rgba(8,13,19,.96);backdrop-filter:blur(8px);border-top:2px solid var(--purple);color:#E4ECF3;
-  padding-block:1.1rem calc(3.6rem + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px),6.5vw);padding-right:max(16px,env(safe-area-inset-right,0px),6.5vw)}
-#panel h4{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:.4rem}
-#panel p{font-size:.98rem;line-height:1.55;max-width:95ch}
-#panel .nx{margin-top:.7rem;color:var(--yellow);font-weight:700}
 
 @media (max-width:900px){
   .deck{scroll-snap-type:none}
@@ -670,9 +662,7 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
 <div id="bar"></div>
 <button class="nav-arrow" id="prev" aria-label="Slide anterior">‹</button>
 <button class="nav-arrow" id="next" aria-label="Slide siguiente">›</button>
-<button id="notesBtn" aria-pressed="false" aria-controls="panel">Guion (G)</button>
 <div id="counter">Portada</div>
-<div id="panel" hidden><h4 id="pTitle">Guion del presentador</h4><p id="pBody"></p><p class="nx" id="pNext"></p></div>
 
 <main class="deck" id="deck">
 
@@ -698,7 +688,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
   </div>
   <div class="brands rv"><em>Operamos la atención de</em>Samsung · LG · BGH · Mirgor · Newsan · Stellantis · Ford · Renault · Mercado Libre</div>
   <div class="foot"><span>Business NOT as usual · wearesolu.com</span><span>República Dominicana · 2026</span></div>
-  <div class="notes" data-next="Antes de la historia, dos minutos sobre quiénes somos.">Hoy no venimos a mostrarles un catálogo. Venimos a contarles cómo trabajamos con operaciones de atención como la suya: primero las ordenamos, después las potenciamos y, sobre esa base, las convertimos en un motor de ventas. Lo vamos a contar con una empresa, Tienda Caribe, y con una clienta, Rosanna. Fíjense en el pedido 48213 de la portada: es el de ella, y al final de la historia llega bien.</div>
 </section>
 
 <!-- SOMOS SOLU · MANDALA Y NÚMEROS -->
@@ -733,7 +722,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     <div><div class="label teal">Crecimiento</div><p>Adquisiciones de <b>Menze, HIT y Lumin</b></p></div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Quiénes somos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Y ahora les presento a alguien que nos va a acompañar toda la presentación.">Somos Solu. Trabajamos con seis unidades coordinadas alrededor del cliente: CX omnicanal, marketplaces, tiendas propias, Salesforce, marketing y desarrollo de software. La persona que atiende a su cliente está sentada al lado de la que entiende su tienda, su marketplace y su CRM. Estamos en ocho países. Algunos números: más de 18 millones de interacciones, 1.100 millones de dólares transaccionados, 11 millones de productos vendidos y un 2% de conversión promedio sobre preguntas de preventa. Somos partner de Salesforce desde 2023 y en 2025 nos eligieron partner número uno de Latinoamérica.</div>
 </section>
 
 <!-- CONOCE A ROSANNA -->
@@ -757,7 +745,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">La historia</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Empecemos por el capítulo 1: el sábado de Rosanna.">Les presento a Rosanna. Tiene 34 años, vive en Santiago de los Caballeros y compró un inversor y una nevera en Tienda Caribe, una tienda de electro y hogar que vende online. Es un caso ilustrativo, pero seguro lo reconocen. Su compra sale mal en cinco momentos: el sábado nadie le responde, cuenta su historia tres veces, se va molesta sin que nadie se entere, la nevera llega sin aviso y en su conversación había una venta que nadie aprovechó. Cada uno de esos capítulos lo resuelve uno de nuestros tres momentos. Y al final, Rosanna vuelve a comprar.</div>
 </section>
 
 <!-- 01 EL PROBLEMA -->
@@ -791,7 +778,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
   </div>
   <div class="rch"><img src="img/rosanna.png" alt=""><div class="rch-b"><div class="rch-h">Rosanna · Capítulo 1 de 5 · El sábado sin respuesta <span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span></div><div class="rch-g"><p><b>Lo que pasó</b>Escribió el sábado a las 23:10 porque su inversor no llegó. Su mensaje quedó entre los 1.200 del lunes.</p><p class="fix"><b>Con Solu</b>Lo resolvemos en el momento 1, ordenando la operación.</p></div></div></div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">El problema</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Ahora miremos esos mismos 24.000 contactos con otros ojos.">Este es el fin de semana de Tienda Caribe. El equipo atiende el sábado hasta las 13:00 y después los mensajes se acumulan. El sábado a las 23:10 escribe Rosanna: su inversor no llegó. El lunes a las 9:00 hay 1.200 mensajes esperando, y el suyo es uno más. Las tres frases de la derecha las escuchamos en casi todas las operaciones que visitamos. No son fallas de las personas: son operaciones que funcionan en modo reactivo. Y cuesta caro: casi 3 de cada 10 contactos no se resuelven a la primera, y recuperar un cliente cuesta entre 5 y 25 veces más que retenerlo. Fuentes, si las piden: Zendesk, SQM Group y Harvard Business Review.</div>
 </section>
 
 <!-- 02 EL CAMBIO DE PERSPECTIVA -->
@@ -822,7 +808,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">El cambio de perspectiva</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Por eso nuestra visión parte de una idea simple.">La pregunta no es cuánto cuesta la atención, sino qué sabe la atención que el resto de la empresa no sabe. Si separamos los 24.000 contactos de Tienda Caribe por motivo, cinco motivos explican el 80%. El más grande es «¿dónde está mi pedido?», como Rosanna. Pero el tercero son 3.840 preguntas antes de comprar, el 16%: personas con la billetera en la mano. Y en la conversación de Rosanna había una venta futura: un inversor que en seis meses necesita mantenimiento. Una operación reactiva no ve nada de eso. Una operación ordenada lo ve y lo usa.</div>
 </section>
 
 <!-- 03 NUESTRA VISIÓN -->
@@ -855,7 +840,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Nuestra visión</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="¿Y cómo empezamos? No con una herramienta: con un diagnóstico.">Nuestra tesis es que una operación de CX bien gestionada no es el final del camino: es la plataforma para crecer. Por eso trabajamos en tres momentos. Primero ordenamos: diagnóstico, procesos, equipo y tableros, porque sin una base estable cualquier tecnología amplifica el desorden. Después potenciamos con nuestras soluciones de IA: chatbot y VoiceBot, Kora como copiloto, Solu Q para la calidad y el sentiment de cada conversación. Y recién ahí aceleramos con todas las palancas de venta: venta asistida, cross-sell, apertura de marketplaces, crossborder, campañas, retención y carritos abandonados. En Tienda Caribe, eso se traduce en tres frases: el lunes deja de ser una crisis, el equipo deja de repetir respuestas y Rosanna vuelve a comprar.</div>
 </section>
 
 <!-- 04 CÓMO COMENZAMOS -->
@@ -879,7 +863,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     <div><div class="label">Tu equipo hace</div><p>Nos da acceso a datos y conversaciones, y nos dedica un par de reuniones.</p></div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 1 · Ordenamos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Y después del diagnóstico, mejoramos en un circuito que no se detiene.">No llegamos con una solución armada. Primero escuchamos la operación: leemos conversaciones reales, hablamos con el equipo y medimos la demanda por canal y por horario. Con eso calculamos cuántas personas hacen falta en cada franja, qué se puede automatizar y dónde se están perdiendo ventas. Y les entregamos un diagnóstico con mejoras rápidas y un plan. Desde ahí, pasar de cero a operar lleva entre 30 y 45 días, y tener al equipo en el puesto, 20.</div>
 </section>
 
 <!-- METODOLOGÍA SOLU -->
@@ -903,7 +886,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 1 · Ordenamos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Con ese circuito, esto es lo que cambia en el día a día.">Después del diagnóstico, trabajamos en un circuito que repetimos todos los meses. Evaluamos los procesos y los indicadores, proponemos mejoras rápidas, las validamos con ustedes, rediseñamos y documentamos, y medimos en tiempo real para volver a empezar. Lo cerramos con los indicadores de siempre: tiempo medio de atención, SLA, resolución al primer contacto, NPS y CSAT. Y lo más importante: nada cambia en su operación sin que su equipo lo valide.</div>
 </section>
 
 <!-- 05 QUÉ TRANSFORMAMOS -->
@@ -934,7 +916,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 1 · Ordenamos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Con la operación estable, ahora sí tiene sentido potenciarla.">Así cambia el día a día. Los 1.200 mensajes del lunes dejan de existir porque la cobertura del fin de semana está dimensionada. Cada asesor responde con el mismo estándar. La calidad deja de ser una muestra. Y la información llega a tiempo para decidir. Miren la primera respuesta al mensaje de Rosanna: hoy tarda nueve horas; con la operación ordenada, menos de dos minutos, que es lo que ya logramos en chat. Es 270 veces más rápido. Los números de abajo son resultados reales de Samsung México.</div>
 </section>
 
 <!-- 06 CÓMO POTENCIAMOS -->
@@ -966,7 +947,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 2 · Potenciamos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Detrás de la respuesta de Carla hay una herramienta: Kora.">Recién con la operación ordenada sumamos tecnología, y siempre para resolver algo que el diagnóstico mostró. Vuelvan al sábado de Rosanna: el asistente responde a las 23:10 lo que antes esperaba hasta el lunes. Lo que necesita criterio, unificar dos entregas, pasa a Carla con todo el historial. Rosanna no repite nada. Y con 7.200 consultas de estado de pedido por mes, la analítica propone el paso siguiente: avisar antes de que pregunten. La protagonista no es la IA: es la capacidad que se libera para resolver y vender.</div>
 </section>
 
 <!-- KORA -->
@@ -1000,7 +980,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
   </div>
   <div class="sec rv"><span class="label teal">Tus datos, protegidos</span><span class="chip">Cifrado en reposo</span><span class="chip">Accesos por rol</span><span class="chip">MFA y VPN corporativa</span><span class="chip">Equipos gestionados por IT</span><span class="chip">Cada activo con un responsable</span><span class="chip">Políticas revisadas cada año</span></div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 2 · Potenciamos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Y si la IA ayuda a responder, también puede ayudar a medir cómo respondemos.">Kora es nuestro copiloto. No le responde al cliente: ayuda al asesor. Lo entrenamos con la base de conocimiento que arma nuestro equipo para cada cliente, con los datos del datawarehouse y con las interacciones pasadas, y aparece dentro del sistema de atención que ya usan. Cuando Rosanna escribió, Carla tenía en pantalla el historial y la regla para unificar entregas. Por eso respondió en tres minutos. Siempre hay una persona en el circuito: el equipo de calidad revisa muestras y ajusta el modelo. Y todo esto corre con cifrado, accesos por rol, MFA y VPN corporativa.</div>
 </section>
 
 <!-- SOLU Q -->
@@ -1031,7 +1010,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     <div><div class="label">Tu equipo hace</div><p>Define qué es una buena atención para tu marca y recibe los hallazgos cada semana.</p></div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 2 · Potenciamos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Con capacidad liberada y datos confiables, llega el momento de crecer. Y para eso hace falta alguien que mire el negocio.">La calidad tradicional se mide sobre una muestra chica. Con Solu Q revisamos con IA hasta el 99% de las conversaciones de cada canal. No reemplaza a los analistas: los calibramos contra la IA y coinciden en un 96%. Y cada asesor sigue teniendo al menos 20 evaluaciones manuales por mes. El cambio está en el tiempo del analista: deja de pasar el día midiendo y dedica el 80% a dar feedback y coaching. Además medimos el sentimiento del cliente y del asesor, y el resultado llega en segundos. Es el capítulo 3 de Rosanna: se fue molesta y nadie se enteró; con Solu Q, el enojo aparece en su conversación y una supervisora la llama ese mismo día.</div>
 </section>
 
 <!-- CUSTOMER SUCCESS MANAGER -->
@@ -1056,7 +1034,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     <div><div class="label">Tu equipo hace</div><p>Comparte metas y calendario comercial, prioriza las propuestas y aprueba los cambios.</p></div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 3 · Aceleramos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Con alguien mirando el negocio, cada contacto puede convertirse en una venta.">Para pasar de operar a crecer hace falta alguien que mire el negocio, no solo los indicadores. Ese es el Customer Success Manager: su punto de contacto único en Solu. Arma con ustedes un plan trimestral, les presenta informes y, sobre todo, propone qué hacer. Un ejemplo con Tienda Caribe: ve que 7.200 personas por mes preguntan por su pedido y propone avisarles antes. Esa sola idea baja contactos y mejora la experiencia. Ustedes ponen las metas y deciden; el CSM se encarga de que la operación trabaje para ellas.</div>
 </section>
 
 <!-- 07 CÓMO HACEMOS CRECER -->
@@ -1080,7 +1057,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 3 · Aceleramos</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Y si quieren salir a buscar ventas, hay un adicional: Televentas.">Este es el momento en que la operación empieza a vender. Pero no ofrecemos las ocho soluciones a todos: elegimos las que el diagnóstico justifica. A Rosanna, seis meses después de una buena experiencia, la contactamos para el mantenimiento de su inversor, y compra una batería y la garantía extendida. José Miguel es una de las 3.840 preguntas de compra del mes: pregunta a las 21:40 y compra porque le respondieron en nueve minutos. Las dos ventas existen porque antes ordenamos la operación.</div>
 </section>
 
 <!-- ADICIONAL · TELEVENTAS -->
@@ -1118,7 +1094,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     <div><div class="label">Tu equipo hace</div><p>Aporta la base y las ofertas, y define las condiciones comerciales.</p></div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">Momento 3 · Aceleramos · Adicional</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Esto no es teoría: veamos un cliente que hizo los tres momentos con nosotros.">Esto es un adicional: lo sumamos cuando la operación ya está ordenada y hay una oportunidad medida. Televentas convierte bases de datos en ventas, y la venta se gana antes de llamar. Primero depuramos la base. Después la IA hace el primer contacto por VoiceBot o WhatsApp y califica. Cuando hay interés real o una objeción compleja, Kora le pasa la conversación al closer con un resumen, y el closer cierra. En una campaña de préstamos personales cumplimos el 94% de los contactos, el 71% agendó turno en una oficina comercial, el 26% aceptó la propuesta en el primer contacto y la activación final llegó al 42%. Y la última etapa es retener: a Rosanna la volvemos a llamar a los seis meses.</div>
 </section>
 
 <!-- CASO SAMSUNG MÉXICO -->
@@ -1144,7 +1119,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">La evidencia</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="¿Cuánto vale cada uno de estos pasos? Veamos el modelo económico.">Tienda Caribe es un ejemplo, pero esto ya pasó con clientes reales. Samsung México es el caso más completo: hicimos los tres momentos. Ordenamos el back office: el tiempo promedio de resolución de tickets bajó de 10 a 3 días, y gestionamos 2.400 promociones y ofertas por mes. Potenciamos la preventa en Mercado Libre: 96% de las preguntas respondidas en menos de 15 minutos y 41% menos ventas canceladas. Y la operación creció: las ventas subieron 320% en seis meses, con más de 650 publicaciones mejoradas por mes. Hoy acompañamos a Samsung en siete marketplaces: Mercado Libre, Amazon, Walmart, Coppel, Liverpool, Elektra y TikTok Shop.</div>
 </section>
 
 <!-- 08 EL MODELO ECONÓMICO -->
@@ -1171,7 +1145,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
   </div>
   <p class="note">Los rangos objetivo se ajustan en el discovery, sobre el mix de canales y motivos de cada operación.</p>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">El modelo económico</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="Y no es solo Samsung: esto dicen otros clientes.">Cada momento tiene su efecto económico y un indicador concreto. Ordenar baja el costo: la primera respuesta pasa de horas a menos de dos minutos y el back office de Samsung bajó de 10 a 3 días. Potenciar libera capacidad: la calidad pasa de una muestra del 3 al 5% a casi todas las conversaciones, y entre el 30 y el 45% de las consultas digitales se pueden resolver sin una persona. Y acelerar genera ingresos: Samsung creció 320% en seis meses y en preventa convertimos en promedio el 2% de las preguntas. La eficiencia del primer paso paga el segundo, y el segundo crea la base del tercero.</div>
 </section>
 
 <!-- MÁS CASOS -->
@@ -1210,7 +1183,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     </div>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">La evidencia</span> · <span class="n"></span></span></div>
-  <div class="notes" data-next="¿Cómo sería este camino para ustedes? Les proponemos empezar por medirlo.">Tres clientes más, de electro y tecnología, como Tienda Caribe. Con Stanley Black and Decker en México armamos la tienda oficial en Mercado Libre: hoy es Mercado Líder Platinum, y la facturación creció 247% en tres años. Con Newsan lanzamos la atención sin demoras: al mes y medio estaban en objetivo, con primera respuesta en menos de tres minutos y un NPS de 57. Y en Grupo Mirgor subimos la resolución al primer contacto, que es lo que después se convierte en ventas en todos sus marketplaces.</div>
 </section>
 
 <!-- 10 LA PROPUESTA -->
@@ -1241,7 +1213,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     <button class="btn rv" type="button" data-goto="discovery" style="margin-top:1.1rem">Empezar el discovery: 10 preguntas, 5 minutos →</button>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span><span class="mo">La propuesta</span> · wearesolu.com</span></div>
-  <div class="notes" data-next="Abrimos el discovery: diez preguntas, cinco minutos.">Volvamos a Rosanna para cerrar. Con la operación ordenada le responden el sábado en menos de dos minutos. Con la operación potenciada no repite su historia, y si se molesta, alguien se entera. Con la operación acelerada recibe el aviso antes de preguntar y seis meses después vuelve a comprar. Empezó como un mensaje perdido del lunes y terminó comprando de nuevo. Eso es lo que queremos construir con ustedes, y empieza por medir: en el discovery vemos cuánto valor está perdiendo hoy su operación, qué se puede resolver rápido y qué capacidades pueden generar ventas. En Solu no solo gestionamos tu operación: construimos la base para que tu negocio venda más.</div>
 </section>
 
 <!-- 11 DISCOVERY -->
@@ -1290,7 +1261,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
     <span class="status" id="adm-status"></span>
   </div>
   <div class="foot"><span class="logo">solu<i>.</i></span><span class="mo">Discovery</span></div>
-  <div class="notes" data-next="Con estas respuestas preparamos la primera reunión.">Estas son las diez preguntas con las que empezamos cualquier discovery: canales, volumen, quién atiende, horario, dónde venden, herramientas, qué les pasa hoy, qué miden, qué quieren lograr y cuándo quieren empezar. Se completa en cinco minutos. Con esto llegamos a la primera reunión sabiendo por dónde empezar, y ahí profundizamos con datos reales.</div>
 </section>
 </main>
 
@@ -1302,7 +1272,6 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
   // Slides numeradas: todas menos la portada y el discovery
   const numbered=slides.filter((s,i)=>i>0&&s.id!=='discovery').length;
   const counter=document.getElementById('counter'),bar=document.getElementById('bar');
-  const panel=document.getElementById('panel'),pBody=document.getElementById('pBody'),pNext=document.getElementById('pNext'),pTitle=document.getElementById('pTitle'),notesBtn=document.getElementById('notesBtn');
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pad=n=>String(n).padStart(2,'0');
   // Mismo formato que el resto del deck: 24.000 y 10,5
@@ -1364,26 +1333,17 @@ p{line-height:1.5;font-size:clamp(.95rem,1.1vw,1.08rem)}
   }
   activate(slides[0]);
 
-  function renderNotes(){
-    const nt=slides[current].querySelector('.notes');
-    pTitle.textContent=current===0?'Guion · Portada':(slides[current].id==='discovery'?'Guion · Discovery':'Guion · Slide '+pad(current)+' de '+numbered);
-    pBody.textContent=nt?nt.textContent:'';
-    pNext.textContent=nt&&nt.dataset.next?'Conexión con la siguiente: '+nt.dataset.next:'';
-  }
   function update(){
     const s=slides[current];
     counter.textContent=current===0?'Portada':(s.id==='discovery'?'Discovery':pad(current)+' / '+numbered);
-    bar.style.width=(current/total*100)+'%';renderNotes();
+    bar.style.width=(current/total*100)+'%';
   }
   function go(i){current=Math.max(0,Math.min(slides.length-1,i));slides[current].scrollIntoView({behavior:reduce?'auto':'smooth'});update();}
-  function toggleNotes(){panel.hidden=!panel.hidden;notesBtn.setAttribute('aria-pressed',String(!panel.hidden));}
   document.getElementById('next').onclick=()=>go(current+1);
   document.getElementById('prev').onclick=()=>go(current-1);
-  notesBtn.onclick=toggleNotes;
   document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>go(slides.indexOf(document.getElementById(b.dataset.goto)))));
   window.addEventListener('keydown',e=>{
     if(e.target.closest&&e.target.closest('button,a,input,select,textarea'))return;
-    if(e.key==='g'||e.key==='G'){toggleNotes();return;}
     const tall=slides[current].classList.contains('tall');
     if(['ArrowRight','PageDown',' '].includes(e.key)||(e.key==='ArrowDown'&&!tall)){e.preventDefault();go(current+1);}
     else if(['ArrowLeft','PageUp'].includes(e.key)||(e.key==='ArrowUp'&&!tall)){e.preventDefault();go(current-1);}
