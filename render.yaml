@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: customer-service-next
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    autoDeploy: true
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
