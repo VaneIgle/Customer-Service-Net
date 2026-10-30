@@ -389,6 +389,14 @@ textarea.in{min-height:3.2rem;resize:vertical;line-height:1.4}
 .pstats{margin-top:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;border-top:1px dashed var(--navy-line);padding-top:.9rem}
 .pstats b{display:block;font-size:1.15rem;font-weight:900;color:var(--cyan)}
 .pstats span{font-size:.78rem;color:var(--on-navy);line-height:1.35}
+.vbox{background:rgba(0,220,218,.08);border:1px solid rgba(0,220,218,.25);border-radius:12px;padding:.7rem 1rem;display:flex;flex-direction:column;gap:.5rem}
+.vhead{display:flex;align-items:center;justify-content:space-between;gap:.8rem;color:#fff;font-size:.98rem;font-weight:700}
+.vhead small{display:block;font-size:.78rem;color:var(--on-navy);font-weight:500}
+.vhead b{color:var(--cyan);font-size:1.3rem;font-weight:900;white-space:nowrap;font-variant-numeric:tabular-nums}
+.vhead b small{display:inline;font-size:.75rem;font-weight:700;margin-left:.25rem}
+.vbox .lst{gap:.3rem;margin-top:0}.vbox .lst li{font-size:.86rem}
+.lst li.nt{color:var(--on-navy)}.lst li.nt::before{content:"·";color:var(--muted-dark)}
+.tot{font-size:.82rem;color:var(--muted-dark)}
 .call{border-radius:18px;padding:1.1rem 1.2rem;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);display:flex;flex-direction:column;gap:.8rem;min-width:0}
 .call-top{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.75rem;align-items:center}
 .bot-av{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem}
@@ -497,15 +505,23 @@ textarea.in{min-height:3.2rem;resize:vertical;line-height:1.4}
   <div class="head" style="position:relative"><h2>Un precio claro <span class="tc">para empezar</span></h2></div>
   <div class="row c2" style="position:relative;align-items:stretch">
     <div class="price rv">
-      <span class="k">Voicebot + asesores</span>
-      <div class="amt"><small>Desde</small><b>USD 3.900</b><small>por mes</small></div>
+      <span class="k">Equipo de cobranzas</span>
+      <div class="amt"><small>Desde</small><b>USD 4.243</b><small>por mes</small></div>
       <ul class="lst">
-        <li>Voicebot con 1.000 minutos incluidos</li>
-        <li>2 asesores dedicados (mínimo), con licencia incluida</li>
-        <li>Lectura de comprobantes y registro de pagos</li>
-        <li>Reporte diario de la gestión</li>
-        <li>Setup bonificado</li>
+        <li>Dos asesores dedicados</li>
+        <li>3.000 minutos de llamadas de asesores incluidos (unas 900 llamadas por mes)</li>
+        <li>Licencias omnicanal incluidas</li>
       </ul>
+      <div class="vbox">
+        <div class="vhead"><span>+ Voicebot con 12.000 minutos<small>unas 6.000 llamadas por mes</small></span><b>USD 2.496<small>por mes</small></b></div>
+        <ul class="lst">
+          <li>Lectura de comprobantes y registro de pagos</li>
+          <li>Reporte diario de la gestión</li>
+          <li>Paquete adicional de 1.000 minutos: USD 208 por mes</li>
+          <li class="nt">Las interacciones de Meta (WhatsApp) se abonan aparte</li>
+        </ul>
+      </div>
+      <div class="tot">Total del paquete: USD 6.739 por mes · Contratación mínima de 3 meses</div>
       <div class="pstats">
         <div><b>15 días</b><span>hábiles para salir en vivo</span></div>
         <div><b>Diario</b><span>reporte de avisos, promesas y pagos</span></div>
@@ -531,7 +547,7 @@ textarea.in{min-height:3.2rem;resize:vertical;line-height:1.4}
       </div>
     </div>
   </div>
-  <p class="note" style="position:relative">Precios de lista mensuales en dólares estadounidenses. No incluye el costo de la central telefónica. Los canales escritos (WhatsApp o email) se cotizan según el volumen.</p>
+  <p class="note" style="position:relative">Paquete adicional de 1.000 minutos de llamadas de asesores: USD 25 por mes. Precios de lista mensuales en dólares estadounidenses, sin ITBIS. No incluye el costo de la central telefónica. Los canales escritos (WhatsApp o email) se cotizan según el volumen.</p>
   <div class="foot"><span class="logo">solu<i>.</i></span><span>Precio · <span class="n"></span></span></div>
 </section>
 
